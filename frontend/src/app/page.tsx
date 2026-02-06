@@ -3,8 +3,35 @@ import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-blue-50 to-white dark:from-black dark:to-zinc-900">
-      <main className="flex flex-col items-center justify-center gap-12 text-center px-6 py-32">
+    <div className="flex min-h-screen flex-col bg-gradient-to-b from-blue-50 to-white dark:from-black dark:to-zinc-900">
+      {/* 네비게이션 바 */}
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-16 items-center justify-between">
+          {/* 로고 */}
+          <Link href="/" className="flex items-center space-x-2">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+              <span className="text-lg font-bold">N</span>
+            </div>
+            <span className="hidden font-bold sm:inline-block">
+              Next Starter
+            </span>
+          </Link>
+
+          {/* 로그인 / 회원가입 버튼 */}
+          <div className="flex items-center space-x-3">
+            <Link href="/login">
+              <Button variant="ghost" size="sm">
+                로그인
+              </Button>
+            </Link>
+            <Link href="/register">
+              <Button size="sm">회원가입</Button>
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      <main className="flex flex-1 flex-col items-center justify-center gap-12 text-center px-6 py-32">
         {/* 앱 타이틀 섹션 */}
         <div className="space-y-4 max-w-2xl">
           <h1 className="text-5xl font-bold tracking-tight text-black dark:text-white sm:text-6xl">
@@ -59,6 +86,18 @@ export default function Home() {
           </div>
         </div>
       </main>
+
+      {/* 푸터 */}
+      <footer className="border-t bg-background/95">
+        <div className="container flex flex-col items-center gap-2 py-6 sm:flex-row sm:justify-between">
+          <p className="text-sm text-muted-foreground">
+            &copy; 2026 Next Starter. All rights reserved.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Next.js &middot; FastAPI &middot; MySQL
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
